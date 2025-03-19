@@ -1,0 +1,225 @@
+body{
+    background-image: url(/iconpack/wall.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: block;
+    margin: 0px;
+   
+}
+
+
+.taskbar{
+    display: flex;
+    background-color: rgb(22, 13, 13);
+    justify-content: space-between;
+    padding: 0.5rem;
+    align-items: center;
+    
+  
+}
+
+.taskbar img {
+    align-items: center;
+    width: 30px; /* Set a fixed width */
+    height: 40px; /* Set a fixed height */
+    object-fit: contain;
+    
+  }
+
+.taskbar a{ 
+ text-decoration: none;
+ padding-top: 0px;
+ color: antiquewhite;
+ font-weight: bold;
+}
+
+.dock{
+    position: fixed;
+    bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    color:blue;
+    background-color: black;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-around;
+    background: rgba(0, 0, 0, 0.459); /* Semi-transparent black */
+    backdrop-filter: blur(10px); /* Glass-like blur */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    padding: 8px; /* Slightly increased padding */
+    border-radius: 12px; /* Smooth rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+   
+}
+
+.docklink {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .dockapps {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Enlarges hovered icon */
+  .docklink:hover .dockapps {
+    transform: scale(1.5);
+  }
+  
+/* 🔹 Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .dock {
+        width: 95%; /* Slightly more width for smaller screens */
+        max-width: 500px; /* Adjust max width */
+        gap: 0.3rem; /* Reduce spacing between icons */
+    }
+    
+    
+    .dockapps {
+        width: 40px; /* Smaller icon size */
+        height: 40px;
+    }
+}
+
+/* 🔹 Even Smaller Screens (Phones) */
+@media (max-width: 480px) {
+    .dock {
+        width: 100%;
+        max-width: 100%;
+        padding: 6px;
+        gap: 0.2rem;
+        border-radius: 8px;
+    }
+    
+    .dockapps {
+        width: 36px; /* Even smaller icon size for compact layout */
+        height: 36px;
+    }
+
+    .docklink:hover .dockapps {
+        transform: scale(1.3); /* Reduce hover effect for small screens */
+    }
+}
+
+/* window */
+
+/* Window Styles */
+.window {
+    position: fixed;
+    width: 400px;
+    height: 300px;
+    background: white;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    display: none; /* Hidden by default */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Ensure it's on top of the taskbar/dock */
+}
+
+/* Window Header */
+.window-header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    cursor: move;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.window-header .window-title {
+    font-size: 16px;
+}
+
+.window-header .close-btn {
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.window-header .close-btn:hover {
+    background: darkred;
+}
+
+/* Window Body */
+/* General Window Styling */
+.window {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    top: 50px;
+    left: 50px;
+    min-width: 200px;
+    min-height: 150px;
+}
+
+/* Window Header */
+.window-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background: #333;
+    color: white;
+    cursor: grab;
+}
+
+.window-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.window-buttons button {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.close-btn { background: red; }
+.minimize-btn { background: yellow; }
+.resize-btn { background: green; }
+
+/* Window Content */
+.window-body {
+    flex: 1;
+    padding: 10px;
+    background: #f0f0f0;
+}
+
+.docklink {
+    position: relative;
+    display: inline-block;
+}
+
+.window-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: red;
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
+    padding: 2px 5px;
+    display: none;
+}
